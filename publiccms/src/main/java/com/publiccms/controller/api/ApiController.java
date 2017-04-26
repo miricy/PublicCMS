@@ -68,6 +68,7 @@ public class ApiController extends AbstractController {
                 HttpParameterHandler handler = new HttpParameterHandler(mappingJackson2HttpMessageConverter, jsonMediaType,
                         request, callback, response);
                 handler.put(ERROR, INTERFACE_NOT_FOUND).render();
+                
             }
         } catch (IOException e) {
             log.error(e.getMessage());
@@ -100,6 +101,7 @@ public class ApiController extends AbstractController {
             map.put("name", entry.getKey());
             map.put("needAppToken", String.valueOf(entry.getValue().needAppToken()));
             map.put("needUserToken", String.valueOf(entry.getValue().needUserToken()));
+            map.put("test",entry.getKey());
             appList.add(map);
         }
     }
